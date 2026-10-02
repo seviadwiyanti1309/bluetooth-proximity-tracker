@@ -1,3 +1,4 @@
+import 'package:bluetooth_proximity_tracker/presentation/radar/radar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -128,9 +129,11 @@ class _DeviceList extends StatelessWidget {
           separatorBuilder: (_, _) => const Divider(height: 1),
           itemBuilder: (context, i) => DeviceTile(
             device: devices[i],
-            onTap: () {
-              // TODO Step 5: buka Radar page
-            },
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => RadarPage(device: devices[i]),
+              ),
+            ),
           ),
         );
       },
